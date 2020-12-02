@@ -1,0 +1,1 @@
+export const getRestaurantsList = (store) => { console.log("from selector", store.Restaurants) }

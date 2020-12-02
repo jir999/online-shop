@@ -1,7 +1,15 @@
 export const dropdownSelect = "dropdownSelect";
 export const inputChange = "inputChange";
 export const restaurantClick = "restaurantClick";
-export const fetchRestaurantsSuccess = "fetchRestaurantsSuccess";
+export const fetchRestaurantsData = "fetchRestaurantsSuccess";
+export const fetchKitchenTypes = "fetchKitchenTypes";
+export const fetchMenu = "fetchMenu";
+
+export const fetchedRestaurantsData = (data) => ({
+    type: fetchRestaurantsData,
+    fetchedData: data
+})
+
 
 // export const fetchedRestaurantsSuccess = (fetchedData) => ({
 //     type: fetchRestaurantsSuccess,
@@ -9,20 +17,19 @@ export const fetchRestaurantsSuccess = "fetchRestaurantsSuccess";
 // })
 
 
-export const fetchedRestaurantsData = (hook) => ({
-    type: fetchRestaurantsSuccess,
-    fetchedData: hook("./restaurants.json")
-    // return (dispatch) => {
-    //     const data = hook("./restaurants.json");
-    //     dispatch(fetchedRestaurantsSuccess(data));
-    // }
+// export const fetchedRestaurantsData = (hook) => ({
+//     type: fetchRestaurantsData,
+//     fetchedData: hook("./restaurants.json")
+// })
 
-    // return {
-    //     curr: (dispatch) => {
-    //         const data = hook("./restaurants.json");
-    //         dispatch(fetchedRestaurantsSuccess(data));
-    //     }
-    // }
+export const fetchedKitchenTypes = (hook) => ({
+    type: fetchKitchenTypes,
+    fetchedData: hook("./kitchenTpes.json")
+})
+
+export const Menu = (hook) => ({
+    type: fetchMenu,
+    fetchedData: hook("./menus/")
 })
 
 export const handleInputChange = (inputValue) => ({
