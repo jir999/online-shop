@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { Restaurants } from "./reducers";
+import { restaurantsData, dropDownData } from "./reducers";
 import thunk from "redux-thunk";
 
-const reducer = combineReducers({ Restaurants });
-const enhancer = applyMiddleware(thunk);
+const reducer = combineReducers({ restaurantsData, dropDownData });
+//const enhancer = applyMiddleware(thunk);
 
-const store = createStore(reducer, {}, enhancer);
+//const store = createStore(reducer, {}, enhancer);
+const store = createStore(reducer);
 
 export default store;

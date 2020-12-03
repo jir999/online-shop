@@ -1,11 +1,12 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+import {handleInputChange} from "../store/actions";
+import Input from '@material-ui/core/Input';
 
-const SearchBox = () => {
-    const handleInputChange = (e) => {
-        const { value } = e.target;
-    }
+const SearchBox = ({flag}) => {
+    const dispatch = useDispatch();
     return (
-        <input onChange={(e) => handleInputChange(e)} placeholder="Search" />
+        <Input className="searchBox" onChange={(e) => dispatch(handleInputChange(e.target.value))} placeholder="Search by name" />
     )
 };
 

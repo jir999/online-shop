@@ -1,33 +1,33 @@
 [
   {
     "id": 1,
-    "name": "Restaurant 1",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Parrallax",
+    "photoUrl": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=300&q=80",
     "kitchenTypes": ["arm", "rus", "eng"]
   },{
     "id": 2,
-    "name": "Restaurant 2",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Eternity",
+    "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/300px-Barbieri_-_ViaSophia25668.jpg",
     "kitchenTypes": ["eng"]
   },{
     "id": 3,
-    "name": "Restaurant 3",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Aurum",
+    "photoUrl": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
     "kitchenTypes": ["rus", "eng"]
   },{
     "id": 4,
-    "name": "Restaurant 4",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Four Seasons",
+    "photoUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
     "kitchenTypes": ["arm", "rus"]
   },{
     "id": 5,
-    "name": "Restaurant 5",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Circus",
+    "photoUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60",
     "kitchenTypes": ["rus"]
   },{
     "id": 6,
-    "name": "Restaurant 6",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "name": "Twin Stars",
+    "photoUrl": "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
     "kitchenTypes": ["arm", "rus"]
   }
 ]

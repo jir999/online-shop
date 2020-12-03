@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {memo, useState, useEffect } from "react";
 import Restaurant from "./Restaurant";
 import SearchBox from "../../components/SearchBox";
 import DropDown from "../../components/DropDown";
@@ -8,29 +8,60 @@ import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import { getRestaurantsList } from "../../store/selectors";
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
 const RestaurantsList = () => {
+    const classes = useStyles();
+
+    const [filtered, setFiltered] = useState(false);
+    const dispatch = useDispatch();
+    const data = useFetch("./restaurants.json");
+
+    console.log("RestaurantsData", data);
 
     useEffect(() => {
-        dispatch(fetchedRestaurantsData(useFetch));
-    })
+        dispatch(fetchedRestaurantsData(data));
+    }, [data])
 
-    const { RestaurantsList } = useSelector((state) => ({
-        RestaurantsList: getRestaurantsList(state),
+    const { restaurantsList } = useSelector((state) => ({
+        restaurantsList: getRestaurantsList(state),
     }))
 
-    console.log("restaurants", RestaurantsList)
+    console.log("restaurants", restaurantsList)
 
-
-    const handleInputChange = () => { };
 
     return (
-        <div>
-            <SearchBox onClick={handleInputChange} />
-            <DropDown />
-            <p>Restaurants List</p>
-            <Restaurant onclick={() => dispatch(handleRestaurantClick("id"))} />
+        <div className={classes.root}>
+            <Grid container spacing={3}>
+                <Grid item xs={6}>
+                    <SearchBox flag={filtered} />
+                </Grid>
+                <Grid item xs={6}>
+                    <DropDown />
+                </Grid>
+                <Grid container spacing={3}>
+                    {restaurantsList.map((el) => (
+                        <Grid item xs={4}>
+                            {<Restaurant photo={el.photoUrl} id={el.id} name={el.name} kitchenTypes={el.kitchenTypes} />}
+                        </Grid>
+                        ))}
+                </Grid>
+            </Grid>
         </div>
     )
 };
 
-export default RestaurantsList;
+export default memo(RestaurantsList);

@@ -1,1 +1,2 @@
-export const getRestaurantsList = (store) => { console.log("from selector", store.Restaurants) }
+export const getRestaurantsList = (store) => store.restaurantsData;
+export const getDropDownData = (store) => store.dropDownData;
