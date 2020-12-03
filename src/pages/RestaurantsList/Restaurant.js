@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -17,6 +18,12 @@ const useStyles = makeStyles({
 
 const Restaurant = ({ id, name, photo, kitchenTypes }) => {
     const classes = useStyles();
+
+    const history = useHistory();
+    const handleButtonClick = () => {
+        console.log("btn")
+        history.push(`/restaurant/${name}`)
+    }
 
     return (
         <div>
@@ -39,7 +46,7 @@ const Restaurant = ({ id, name, photo, kitchenTypes }) => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
+                    <Button onClick={handleButtonClick} size="small" color="primary">
                         Learn More
                     </Button>
                 </CardActions>
