@@ -1,6 +1,8 @@
 import { fetchRestaurantsData } from "../actions";
 import { fetchKitchenTypes } from "../actions";
 import {restaurantsInputChange} from "../actions";
+import {fetchMenu} from "../actions";
+
 
 export const restaurantsData = (state = [], action) => {
     const { type, fetchedData, inputValue } = action;
@@ -10,10 +12,8 @@ export const restaurantsData = (state = [], action) => {
             return fetchedData;
         case restaurantsInputChange:
             if(!inputValue){
-                console.log("reduc default case")
                 return state;
             }
-            return state.filter((item) => item.name.includes(inputValue));
         default:
             return state;
     }
@@ -26,6 +26,9 @@ export const restaurantsData = (state = [], action) => {
 //         if(inputValue){
 //             return state.filter((item) => item.name.includes(inputValue));
 //         }
+
+//         default:
+//             return state;
 //     }
 // }
 
@@ -41,6 +44,12 @@ export const dropDownData = (state = [], action) => {
 
 
 
-// export const Menu = (state = [], action) => {
-//     const { type }
-// }
+export const menuData = (state = [], action) => {
+    const { type, fetchedData } = action;
+    switch(type){
+        case fetchMenu:
+            return fetchedData;
+        default:
+            return state;
+    }
+}

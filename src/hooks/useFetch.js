@@ -23,6 +23,7 @@ const useFetch = (url) => {
         })();
     });
     console.log("fetchedData", fetchedData)
+    console.log("cache", cache)
     return fetchedData;
 };
 

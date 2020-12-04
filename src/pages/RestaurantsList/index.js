@@ -1,4 +1,4 @@
-import React, {memo, useState, useEffect } from "react";
+import React, {memo, useMemo, useState, useEffect } from "react";
 import Restaurant from "./Restaurant";
 import SearchBox from "../../components/SearchBox";
 import DropDown from "../../components/DropDown";
@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 const RestaurantsList = () => {
     const classes = useStyles();
 
-    const [filtered, setFiltered] = useState(false);
     const dispatch = useDispatch();
     const data = useFetch("./restaurants.json");
 
@@ -35,6 +34,10 @@ const RestaurantsList = () => {
     useEffect(() => {
         dispatch(fetchedRestaurantsData(data));
     }, [data])
+
+    // useMemo(() => {
+    //     dispatch(fetchedRestaurantsData(data));
+    // },[])
 
     const { restaurantsList } = useSelector((state) => ({
         restaurantsList: getRestaurantsList(state),
@@ -47,7 +50,7 @@ const RestaurantsList = () => {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={6}>
-                    <SearchBox flag={filtered} />
+                    <SearchBox  />
                 </Grid>
                 <Grid item xs={6}>
                     <DropDown />
@@ -55,7 +58,12 @@ const RestaurantsList = () => {
                 <Grid container spacing={3}>
                     {restaurantsList.map((el) => (
                         <Grid item xs={4}>
-                            {<Restaurant photo={el.photoUrl} id={el.id} name={el.name} kitchenTypes={el.kitchenTypes} />}
+                            {<Restaurant className={classes.paper}
+                                         photo={el.photoUrl} 
+                                         id={el.id} 
+                                         name={el.name} 
+                                         kitchenTypes={el.kitchenTypes} />
+                            }
                         </Grid>
                         ))}
                 </Grid>

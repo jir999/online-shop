@@ -21,8 +21,7 @@ const Restaurant = ({ id, name, photo, kitchenTypes }) => {
 
     const history = useHistory();
     const handleButtonClick = () => {
-        console.log("btn")
-        history.push(`/restaurant/${name}`)
+        history.push(`/restaurant/${name}/${id}`)
     }
 
     return (
@@ -30,11 +29,11 @@ const Restaurant = ({ id, name, photo, kitchenTypes }) => {
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
-                    component="img"
-                    alt="{name restaurant}"
-                    height="140"
-                    image={photo}
-                    title="Restaurant"
+                        component="img"
+                        alt="{name restaurant}"
+                        height="140"
+                        image={photo}
+                        title="Restaurant"
                     />
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
