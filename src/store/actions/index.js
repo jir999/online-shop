@@ -5,6 +5,7 @@ export const fetchRestaurantsData = "fetchRestaurantsSuccess";
 export const fetchKitchenTypes = "fetchKitchenTypes";
 export const fetchMenu = "fetchMenu";
 export const restaurantImageClick = "restaurantImageClick";
+export const addToCartClick = "addToCartClick";
 
 
 
@@ -23,22 +24,29 @@ export const fetchedMenuData = (data) => ({
     fetchedData: data
 })
 
-export const handleRestaurantImageClick = () => ({
-    type: restaurantImageClick,
-})
+// export const handleRestaurantImageClick = () => ({
+//     type: restaurantImageClick,
+// })
 
 export const handleInputChange = (inputValue) => ({
     type: restaurantsInputChange,
     inputValue: inputValue,
 });
 
-export const handleSelectChange = (selectedValue) => ({
-    type: dropdownSelect,
-    selectedValue
-});
-
-export const handleRestaurantClick = (restaurantId) => ({
-    type: restaurantClick,
-    restaurantId
+export const handleAddToCartClick = (menuId) => ({
+    type: addToCartClick,
+    menuId,
+    showBasket: true,
 })
+
+// export const handleSelectChange = (selectedValue) => ({
+//     type: dropdownSelect,
+//     selectedValue
+// });
+
+// export const handleRestaurantClick = (restaurantId) => ({
+//     type: restaurantClick,
+//     restaurantId
+// })
+
 

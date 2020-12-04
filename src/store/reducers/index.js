@@ -2,6 +2,9 @@ import { fetchRestaurantsData } from "../actions";
 import { fetchKitchenTypes } from "../actions";
 import {restaurantsInputChange} from "../actions";
 import {fetchMenu} from "../actions";
+import {addToCartClick} from "../actions";
+
+// import RestaurantsState from "./RestaurantsState";
 
 
 export const restaurantsData = (state = [], action) => {
@@ -17,9 +20,11 @@ export const restaurantsData = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
-// export const filteredRestaurants = (state = [], action) => {
+
+
+// export const filteredRestaurants = (state = <RestaurantsState />, action) => {
 //     const {type, inputValue} = action;
 //     switch(type){
 //         case restaurantsInputChange:
@@ -31,6 +36,8 @@ export const restaurantsData = (state = [], action) => {
 //             return state;
 //     }
 // }
+
+
 
 export const dropDownData = (state = [], action) => {
     const { type, fetchedData } = action;
@@ -49,6 +56,16 @@ export const menuData = (state = [], action) => {
     switch(type){
         case fetchMenu:
             return fetchedData;
+        default:
+            return state;
+    }
+}
+
+export const basketData = (state = [] , action) => {
+    const {type, menuId} = action;
+    switch(type){
+        case addToCartClick:
+            return state;
         default:
             return state;
     }
