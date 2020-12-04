@@ -61,11 +61,12 @@ export const menuData = (state = [], action) => {
     }
 }
 
-export const basketData = (state = [] , action) => {
-    const {type, menuId} = action;
+export const basketData = (state = {} , action) => {
+    const {type, currentMenuData, showBasket} = action;
     switch(type){
         case addToCartClick:
-            return state;
+            console.log("AddtoCart reducer")
+            return {...currentMenuData, showBasket};
         default:
             return state;
     }

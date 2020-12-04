@@ -1,10 +1,15 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {useDispatch} from "react-redux";
+import {handleAddToCartClick} from "../store/actions";
 
-const AddToCart = () => {
+
+const AddToCart = (menuData) => {
+    const dispatch = useDispatch();
+
     return(
-        <Button variant="contained" color="primary" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
+        <Button onClick={() =>dispatch(handleAddToCartClick(menuData))} variant="contained" color="primary" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
     )
 };
 

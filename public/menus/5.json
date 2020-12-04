@@ -2,32 +2,32 @@
   {
     "id": 1,
     "name": "Dish 1",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://robbreport.com/wp-content/uploads/2019/12/sorrel-cappelletti-1.jpg?w=1000",
     "price": 1000
   },{
     "id": 2,
     "name": "Dish 2",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2016%2F05%2Fcurry-DISHES0616.jpg&q=85",
     "price": 2000
   },{
     "id": 3,
     "name": "Dish 3",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2010%2F12%2F201012-ss-dishes-leeks.jpg",
     "price": 1400
   },{
     "id": 4,
     "name": "Dish 4",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2010%2F12%2F201012-ss-dishes-lamb-ragu.jpg",
     "price": 500
   },{
     "id": 5,
     "name": "Dish 5",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://thesmartlocal.com/wp-content/uploads/2014/01/images_easyblog_images_82_catalunya.jpg",
     "price": 15000
   },{
     "id": 6,
     "name": "Dish 6",
-    "photoUrl": "https://media.gettyimages.com/photos/cozy-restaurant-for-gathering-with-friends-picture-id1159992039?s=612x612",
+    "photoUrl": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made.jpg",
     "price": 1700
   }
 ]

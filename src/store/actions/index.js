@@ -33,9 +33,9 @@ export const handleInputChange = (inputValue) => ({
     inputValue: inputValue,
 });
 
-export const handleAddToCartClick = (menuId) => ({
+export const handleAddToCartClick = (currentMenuData) => ({
     type: addToCartClick,
-    menuId,
+    currentMenuData,
     showBasket: true,
 })
 
