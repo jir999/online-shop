@@ -1,4 +1,4 @@
-import React, {memo, useMemo, useState, useEffect } from "react";
+import React, {memo, useEffect } from "react";
 import Restaurant from "./Restaurant";
 import SearchBox from "../../components/SearchBox";
 import DropDown from "../../components/DropDown";

@@ -6,10 +6,27 @@ import {fetchedMenuData} from "../../store/actions";
 import {useSelector} from "react-redux";
 import { getMenuData } from "../../store/selectors";
 import GoBack from "../../components/GoBack";
-import AddToCart from "../../components/AddToCart";
+import SearchBox from "../../components/SearchBox";
+import Menu from "./Menu";
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 const MenuList = () => {
+    const classes = useStyles();
+
     const params = useParams();
     const dispatch = useDispatch();
 
@@ -19,33 +36,32 @@ const MenuList = () => {
         dispatch(fetchedMenuData(data));
     }, [data])
 
-    // useEffect(() => {
-    //     fetch(`/menus/${params.id}.json`)
-    //         .then(res => res.json())
-    //         .then(res => setMenuList(res));
-    // },[])
-
-
-    // console.time("end");
-    // useEffect(() => {
-    //     dispatch((denuList)))
-    // },[menuList]);
-    // console.timeEnd("end");
-
-    // console.log("menuList", menuList);
-
-
-    const {menuData} = useSelector((state) => ({
-        menuData: getMenuData(state)
+    const {menuList} = useSelector((state) => ({
+        menuList: getMenuData(state)
     }))
 
-    console.log("menuData", menuData);
-
     return (
-        <div>
-            MenuList
-            <GoBack />
-            <AddToCart />
+        <div className={classes.root}>
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                    <GoBack />
+                </Grid>
+                <Grid item xs={12}>
+                    <SearchBox  />
+                </Grid>
+                <Grid container spacing={3}>
+                    {menuList.map((el) => (
+                        <Grid item xs={4}>
+                            {<Menu className={classes.paper}
+                                            photo={el.photoUrl} 
+                                            id={el.id} 
+                                            name={el.name} 
+                                            price={el.price} />
+                            }
+                        </Grid>
+                        ))}
+                </Grid>
+            </Grid>
         </div>
     )
 };
