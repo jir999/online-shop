@@ -3,13 +3,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import RestaurantsList from "../pages/RestaurantsList";
 import MenuList from "../pages/MenuList";
 import ErrorBoundry from "../pages/ErrorBoundry";
-import Basket from "../components/Basket";
+import BasketList from "../components/BasketList";
 
 
 const Routing = () => {
     return (
         <div>
-            <Basket />
+            <BasketList />
             <Switch>
                 <Route exact path="/" component={RestaurantsList} />
                 <Route path="/restaurant/:name/:id" component={MenuList} />

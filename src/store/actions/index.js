@@ -6,6 +6,7 @@ export const fetchKitchenTypes = "fetchKitchenTypes";
 export const fetchMenu = "fetchMenu";
 export const restaurantImageClick = "restaurantImageClick";
 export const addToCartClick = "addToCartClick";
+export const basketIconClick = "basketIconClic"
 
 
 
@@ -33,10 +34,15 @@ export const handleInputChange = (inputValue) => ({
     inputValue: inputValue,
 });
 
-export const handleAddToCartClick = (currentMenuData) => ({
+export const handleAddToCartClick = (currentMenuData, bool) => ({
     type: addToCartClick,
     currentMenuData,
-    showBasket: true,
+    showBasket: bool,
+})
+
+export const handleBasketIconClick = (bool) => ({
+    type: basketIconClick,
+    showBasket: bool,
 })
 
 // export const handleSelectChange = (selectedValue) => ({

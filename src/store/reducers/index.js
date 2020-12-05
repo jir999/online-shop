@@ -3,6 +3,7 @@ import { fetchKitchenTypes } from "../actions";
 import {restaurantsInputChange} from "../actions";
 import {fetchMenu} from "../actions";
 import {addToCartClick} from "../actions";
+import {basketIconClick} from "../actions";
 
 // import RestaurantsState from "./RestaurantsState";
 
@@ -65,9 +66,12 @@ export const basketData = (state = {} , action) => {
     const {type, currentMenuData, showBasket} = action;
     switch(type){
         case addToCartClick:
-            console.log("AddtoCart reducer")
+            return {...currentMenuData, showBasket};
+        case basketIconClick:
+            console.log("click")
             return {...currentMenuData, showBasket};
         default:
             return state;
     }
 }
+

@@ -9,7 +9,7 @@ const AddToCart = (menuData) => {
     const dispatch = useDispatch();
 
     return(
-        <Button onClick={() =>dispatch(handleAddToCartClick(menuData))} variant="contained" color="primary" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
+        <Button onClick={() =>dispatch(handleAddToCartClick(menuData,true))} variant="contained" color="primary" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>
     )
 };
 
