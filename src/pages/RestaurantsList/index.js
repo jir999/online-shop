@@ -3,7 +3,7 @@ import Restaurant from "./Restaurant";
 import SearchBox from "../../components/SearchBox";
 import DropDown from "../../components/DropDown";
 import { useDispatch } from "react-redux";
-import { fetchedRestaurantsData, restaurantImageClick } from "../../store/actions";
+import { fetchedRestaurantsData, handleInputChange } from "../../store/actions";
 import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import { getRestaurantsList, getSearchValue } from "../../store/selectors";
@@ -38,6 +38,10 @@ const RestaurantsList = () => {
     useEffect(() => {
         dispatch(fetchedRestaurantsData(data));
     }, [data])
+
+    useEffect(() => {
+        dispatch(handleInputChange(""));
+    },[])
 
     // useMemo(() => {
     //     dispatch(fetchedRestaurantsData(data));
