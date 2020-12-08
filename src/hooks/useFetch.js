@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const cache = new Map();
+console.log("Cache",cache);
 
 export const cachableFetch = async (url) => {
     if (cache.has(url)) {
         return cache.get(url);
     }
+    else{
     console.log("fetch working");
     const response = await fetch(url);
     const data = await response.json();
     cache.set(url, data);
     return data;
+    }
 }
 
 const useFetch = (url) => {

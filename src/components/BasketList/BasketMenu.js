@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {getBasketData} from "../store/selectors";
+import {getBasketData} from "../../store/selectors";
 
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';

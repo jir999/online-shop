@@ -34,6 +34,7 @@ export const handleInputChange = (inputValue) => ({
     inputValue: inputValue,
 });
 
+
 export const handleAddToCartClick = (currentMenuData, bool) => ({
     type: addToCartClick,
     currentMenuData,

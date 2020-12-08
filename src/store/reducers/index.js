@@ -23,20 +23,15 @@ export const restaurantsData = (state = [], action) => {
     }
 };
 
-
-
-// export const filteredRestaurants = (state = <RestaurantsState />, action) => {
-//     const {type, inputValue} = action;
-//     switch(type){
-//         case restaurantsInputChange:
-//         if(inputValue){
-//             return state.filter((item) => item.name.includes(inputValue));
-//         }
-
-//         default:
-//             return state;
-//     }
-// }
+export const searchValue = (state = "", action) => {
+    const {type, inputValue} = action;
+    switch(type){
+        case restaurantsInputChange:
+            return inputValue.toLowerCase();
+        default:
+            return state;
+    }
+}
 
 
 
@@ -75,3 +70,17 @@ export const basketData = (state = {} , action) => {
     }
 }
 
+// export const basketData = (state = [] , action) => {
+//     const {type, currentMenuData, showBasket} = action;
+//     switch(type){
+//         case addToCartClick:
+//             const newState = [...state];
+//             newState.push({...currentMenuData, showBasket})
+//             return newState;
+//             return [{...currentMenuData, showBasket}];
+//         case basketIconClick:
+//             return {...currentMenuData, showBasket};
+//         default:
+//             return state;
+//     }
+// }

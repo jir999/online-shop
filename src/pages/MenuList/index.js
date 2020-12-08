@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import {useParams} from "react-router-dom";
 import {fetchedMenuData} from "../../store/actions";
 import {useSelector} from "react-redux";
-import { getMenuData } from "../../store/selectors";
+import { getMenuData, getSearchValue } from "../../store/selectors";
 import GoBack from "../../components/GoBack";
 import SearchBox from "../../components/SearchBox";
 import Menu from "./Menu";
@@ -29,6 +29,7 @@ const MenuList = () => {
     const classes = useStyles();
 
     const params = useParams();
+    console.log("PARAMS", params)
     const dispatch = useDispatch();
 
     const data = useFetch(`/menus/${params.id}.json`);
@@ -37,9 +38,17 @@ const MenuList = () => {
         dispatch(fetchedMenuData(data));
     }, [data])
 
-    const {menuList} = useSelector((state) => ({
-        menuList: getMenuData(state)
+    const {menusList, searchValue} = useSelector((state) => ({
+        menusList: getMenuData(state),
+        searchValue: getSearchValue(state),
     }))
+
+    let filtered;
+    if(searchValue){
+        console.log("MENULIST searchValue", searchValue)
+        console.log("MENULIST FILTERED", filtered);
+        filtered = menusList.filter((item) => item.name.toLowerCase().includes(searchValue));
+    }    
 
     return (
         <div className={classes.root}>
@@ -51,7 +60,17 @@ const MenuList = () => {
                     <SearchBox  />
                 </Grid>
                 <Grid container spacing={3}>
-                    {menuList.map((el) => (
+                    {!filtered ? menusList.map((el) => (
+                        <Grid item xs={4}>
+                            {<Menu className={classes.paper}
+                                            photo={el.photoUrl} 
+                                            id={el.id} 
+                                            name={el.name} 
+                                            price={el.price} />
+                            }
+                        </Grid>
+                        ))
+                    : filtered.map((el) => (
                         <Grid item xs={4}>
                             {<Menu className={classes.paper}
                                             photo={el.photoUrl} 

@@ -3,10 +3,10 @@ import Restaurant from "./Restaurant";
 import SearchBox from "../../components/SearchBox";
 import DropDown from "../../components/DropDown";
 import { useDispatch } from "react-redux";
-import { fetchedRestaurantsData } from "../../store/actions";
+import { fetchedRestaurantsData, restaurantImageClick } from "../../store/actions";
 import useFetch from "../../hooks/useFetch";
 import { useSelector } from "react-redux";
-import { getRestaurantsList } from "../../store/selectors";
+import { getRestaurantsList, getSearchValue } from "../../store/selectors";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -24,9 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 const RestaurantsList = () => {
     const classes = useStyles();
 
+
+    console.log("RestaurantsList render")
     const dispatch = useDispatch();
     const data = useFetch("./restaurants.json");
 
@@ -40,12 +43,18 @@ const RestaurantsList = () => {
     //     dispatch(fetchedRestaurantsData(data));
     // },[])
 
-    const { restaurantsList } = useSelector((state) => ({
+    const { restaurantsList, searchValue } = useSelector((state) => ({
         restaurantsList: getRestaurantsList(state),
+        searchValue: getSearchValue(state),
     }))
 
-    console.log("restaurants", restaurantsList)
-
+    console.log("restaurants", restaurantsList);
+    console.log("searchValue", searchValue);
+    let filtered ;
+    if(searchValue){
+         filtered = restaurantsList.filter((item) => item.name.toLowerCase().includes(searchValue));
+         console.log("filtered", filtered)
+    }
 
     return (
         <div className={classes.root}>
@@ -57,7 +66,17 @@ const RestaurantsList = () => {
                     <DropDown />
                 </Grid>
                 <Grid container spacing={3}>
-                    {restaurantsList.map((el) => (
+                    {!filtered ? restaurantsList.map((el) => (
+                        <Grid item xs={4}>
+                            {<Restaurant className={classes.paper}
+                                         photo={el.photoUrl} 
+                                         id={el.id} 
+                                         name={el.name} 
+                                         kitchenTypes={el.kitchenTypes} />
+                            }
+                        </Grid>
+                        ))
+                    : filtered.map((el) => (
                         <Grid item xs={4}>
                             {<Restaurant className={classes.paper}
                                          photo={el.photoUrl} 

@@ -9,6 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {handleInputChange} from "../../store/actions";
 
 const useStyles = makeStyles({
   root: {
@@ -18,10 +20,14 @@ const useStyles = makeStyles({
 
 const Restaurant = ({ id, name, photo, kitchenTypes }) => {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const history = useHistory();
     const handleButtonClick = () => {
+        console.log('ID', id);
+        console.log("KITCH", kitchenTypes)
         history.push(`/restaurant/${name}/${id}`)
+        dispatch(handleInputChange(""));
     }
 
     return (

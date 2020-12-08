@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import AddToCart from "../../components/AddToCart";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +40,7 @@ const Menu = ({id, name, photo, price}) => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
+                    <Button>See recipe</Button>
                     <AddToCart 
                         menuId={id} 
                         menuName={name} 
