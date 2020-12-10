@@ -16,6 +16,8 @@ import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  menus: {
     marginLeft: "110px"
   },
   paper: {
@@ -59,7 +61,7 @@ const MenuList = () => {
                 <Grid item xs={12}>
                     <SearchBox  />
                 </Grid>
-                <Grid container spacing={3}>
+                <Grid className={classes.menus} container spacing={3}>
                     {!filtered ? menusList.map((el) => (
                         <Grid item xs={4}>
                             {<Menu className={classes.paper}

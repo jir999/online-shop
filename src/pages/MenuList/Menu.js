@@ -20,35 +20,33 @@ const Menu = ({id, name, photo, price}) => {
     const classes = useStyles();
 
     return(
-        <div>
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        alt="{name restaurant}"
-                        height="140"
-                        image={photo}
-                        title="Restaurant"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {`price: ${price}`}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button>See recipe</Button>
-                    <AddToCart 
-                        menuId={id} 
-                        menuName={name} 
-                        menuPhoto={photo} 
-                        menuPrice={price} />
-                </CardActions>
-            </Card>
-        </div>
+        <Card className={classes.root}>
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    alt="{name restaurant}"
+                    height="140"
+                    image={photo}
+                    title="Restaurant"
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {name}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {`price: ${price}`}
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button>See recipe</Button>
+                <AddToCart 
+                    menuId={id} 
+                    menuName={name} 
+                    menuPhoto={photo} 
+                    menuPrice={price} />
+            </CardActions>
+        </Card>
     )
 
 };

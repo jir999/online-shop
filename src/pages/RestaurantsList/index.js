@@ -52,12 +52,9 @@ const RestaurantsList = () => {
         searchValue: getSearchValue(state),
     }))
 
-    console.log("restaurants", restaurantsList);
-    console.log("searchValue", searchValue);
     let filtered ;
     if(searchValue){
          filtered = restaurantsList.filter((item) => item.name.toLowerCase().includes(searchValue));
-         console.log("filtered", filtered)
     }
 
     return (

@@ -70,7 +70,7 @@ export const basketData = (state = {} , action) => {
     }
 }
 
-// export const basketData = (state = [] , action) => {
+// export const basketListData = (state = [] , action) => {
 //     const {type, currentMenuData, showBasket} = action;
 //     switch(type){
 //         case addToCartClick:

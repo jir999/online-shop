@@ -31,32 +31,30 @@ const Restaurant = ({ id, name, photo, kitchenTypes }) => {
     }
 
     return (
-        <div>
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        alt="{name restaurant}"
-                        height="140"
-                        image={photo}
-                        title="Restaurant"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {kitchenTypes.map((item) => `${item} `)}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button onClick={handleButtonClick} size="small" color="primary">
-                        Learn More
-                    </Button>
-                </CardActions>
-            </Card>
-        </div>
+        <Card className={classes.root}>
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    alt="{name restaurant}"
+                    height="140"
+                    image={photo}
+                    title="Restaurant"
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {name}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {kitchenTypes.map((item) => `${item} `)}
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button onClick={handleButtonClick} size="small" color="primary">
+                    Learn More
+                </Button>
+            </CardActions>
+        </Card>
     )
 };
 
