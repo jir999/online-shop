@@ -26,7 +26,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const RangeSlider = () {
+const RangeSlider = () => {
   const classes = useStyles();
   const [value, setValue] = useState([0, 1500]);
 

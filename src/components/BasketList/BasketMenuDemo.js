@@ -25,21 +25,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BasketMenu = ({id, name, photo, price}) => {
+const BasketMenu = () => {
     const classes = useStyles();
 
-    //const {menuId, menuName, menuPhoto, menuPrice} = useSelector((state) => getBasketData(state));
+    const {menuId, menuName, menuPhoto, menuPrice} = useSelector((state) => getBasketData(state));
 
     return(
         <Grid classname={classes.root} container spacing={2}>
             <Grid item xs={4}>
-                <img className={classes.imgWidth} src={photo} />
+                <img className={classes.imgWidth} src={menuPhoto} />
             </Grid>
             <Grid item xs>
-                <p>{name}</p>
+                <p>{menuName}</p>
             </Grid>
             <Grid item xs>
-                <p>{price}</p>
+                <p>{menuPrice}</p>
             </Grid>
             <Grid item xs>
                 <Button color="primary"><RemoveIcon /></Button>

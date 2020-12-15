@@ -9,7 +9,7 @@ const GoBack = () => {
     }
 
     return(
-        <Button variant="contained" color="secondary" onClick={handleBtnClick}>GoBack</Button>
+        <Button variant="contained" color="default" onClick={handleBtnClick}>GoBack</Button>
     )
 }
 
