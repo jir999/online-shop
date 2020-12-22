@@ -7,7 +7,8 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles({
   root: {
     width: 300,
-    marginLeft: "10px"
+    flexGrow: 1,
+    marginLeft: "500px"
   }
 });
 
@@ -26,7 +27,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const RangeSlider = () => {
+const InputRange = () => {
   const classes = useStyles();
   const [value, setValue] = useState([0, 1500]);
 
@@ -35,11 +36,13 @@ const RangeSlider = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <Typography id="range-slider" gutterBottom>
-        Temperature range
-      </Typography>
-      <Grid container spacing={2}>
+    <Grid className={classes.root} container spacing={2}>
+      <Grid item xs={12}>
+        <Typography id="range-slider" gutterBottom>
+          Temperature range
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
         <Slider
           value={value}
           onChange={handleChange}
@@ -51,10 +54,15 @@ const RangeSlider = () => {
           getAriaValueText={valuetext}
         />
       </Grid>
-    </div>
+    </Grid>
   );
 };
 
-export default RangeSlider;
+export default InputRange;
 
 // aria-labelledby="range-slider"
+
+
+// <Typography id="range-slider" gutterBottom>
+//           Temperature range
+//         </Typography>

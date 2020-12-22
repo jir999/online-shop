@@ -5,9 +5,7 @@ import {fetchMenu} from "../actions";
 import {addToCartClick} from "../actions";
 import {basketIconClick} from "../actions";
 import {orderBtnClick} from "../actions";
-
-// import RestaurantsState from "./RestaurantsState";
-
+import {dropdownSelect} from "../actions";
 
 export const restaurantsData = (state = [], action) => {
     const { type, fetchedData, inputValue } = action;
@@ -24,6 +22,16 @@ export const restaurantsData = (state = [], action) => {
     }
 };
 
+export const menuData = (state = [], action) => {
+    const { type, fetchedData } = action;
+    switch(type){
+        case fetchMenu:
+            return fetchedData;
+        default:
+            return state;
+    }
+}
+
 export const searchValue = (state = "", action) => {
     const {type, inputValue} = action;
     switch(type){
@@ -34,25 +42,12 @@ export const searchValue = (state = "", action) => {
     }
 }
 
-
-
 export const dropDownData = (state = [], action) => {
     const { type, fetchedData } = action;
     switch (type) {
         case fetchKitchenTypes:
-            return fetchedData;
-        default:
-            return state;
-    }
-}
-
-
-
-export const menuData = (state = [], action) => {
-    const { type, fetchedData } = action;
-    switch(type){
-        case fetchMenu:
-            return fetchedData;
+            //return fetchedData;
+            return [{name: 'All', abbr: "all"},...fetchedData];
         default:
             return state;
     }
@@ -90,12 +85,15 @@ export const basketListData = (state = [] , action) => {
     }
 }
 
-// export const orderPopupShow = (state = false, action) => {
-//     const {type, bool} = action;
-//     switch(type){
-//         case orderBtnClick:
-//             return bool; 
-//         default:
-//             return state;
-//     }
-// }
+export const dropDownValue = (state = "", action) => {
+    const {type, selectedValue} = action;
+    switch(type){
+        case dropdownSelect:
+            console.log("B")
+            return selectedValue;
+        default:
+            return state;
+    }
+}
+
+

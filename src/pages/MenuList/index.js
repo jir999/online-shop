@@ -8,6 +8,7 @@ import { getMenuData, getSearchValue } from "../../store/selectors";
 import GoBack from "../../components/GoBack";
 import SearchBox from "../../components/SearchBox";
 import Menu from "./Menu";
+import InputRange from "../../components/InputRange";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -60,6 +61,9 @@ const MenuList = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <SearchBox  />
+                </Grid>
+                <Grid item xs={12}>
+                    <InputRange />
                 </Grid>
                 <Grid className={classes.menus} container spacing={3}>
                     {!filtered ? menusList.map((el) => (

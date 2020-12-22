@@ -50,14 +50,10 @@ export const handleOrderBtnClick = () => ({
     type: orderBtnClick,
 })
 
-// export const handleSelectChange = (selectedValue) => ({
-//     type: dropdownSelect,
-//     selectedValue
-// });
+export const handleDropDownChange = (selectedValue) => ({
+    type: dropdownSelect,
+    selectedValue
+});
 
-// export const handleRestaurantClick = (restaurantId) => ({
-//     type: restaurantClick,
-//     restaurantId
-// })
 
 

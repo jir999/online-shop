@@ -9,6 +9,7 @@ import useFetch from "../hooks/useFetch";
 import { fetchedKitchenTypes } from "../store/actions";
 import { useSelector } from "react-redux";
 import { getDropDownData } from "../store/selectors";
+import {handleDropDownChange} from "../store/actions";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -38,11 +39,12 @@ const DropDown = () => {
     console.log("dropDownData Selector", dropDownData);
 
     const classes = useStyles();
-    const [kitchenType, setKitchenType] = React.useState('');
+    const [kitchenType, setKitchenType] = useState('all');
 
 
 
     const handleSelectChange = (event) => {
+        dispatch(handleDropDownChange(event.target.value));
         setKitchenType(event.target.value);
     };
 
@@ -57,15 +59,12 @@ const DropDown = () => {
                     value={kitchenType}
                     onChange={handleSelectChange}
                 >
-                    {dropDownData.length ? dropDownData.map((item) => <MenuItem>{item.name}</MenuItem>) : <p>Loading</p>}
+                    
+                    {dropDownData.length ? dropDownData.map((item) => <MenuItem value={item.abbr}>{item.name}</MenuItem>) : <p>Loading</p>}
                 </Select>
             </FormControl>
         </div>
     )
 }
-        //{dropDownData.map((item) => <MenuItem>{item.name}</MenuItem>)}
-                    // <MenuItem value={10}>kitchenType1</MenuItem>
-                    // <MenuItem value={20}>kitchenType2</MenuItem>
-                    // <MenuItem value={30}>kitchenType3</MenuItem>
 
 export default DropDown;

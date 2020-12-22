@@ -24,8 +24,7 @@ const useFetch = (url) => {
             const result = await cachableFetch(url);
             setFetchedData(result);
         })();
-    });
-    console.log("fetchedData", fetchedData)
+    },[]);
     console.log("cache", cache)
     return fetchedData;
 };
