@@ -1,6 +1,5 @@
-import React from "react";
-import {useDispatch} from "react-redux";
-import {handleInputChange} from "../store/actions";
+import { useDispatch } from 'react-redux';
+import { handleInputChange } from '../../store/actions/restaurants';
 import Input from '@material-ui/core/Input';
 
 const SearchBox = () => {
