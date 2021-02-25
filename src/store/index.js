@@ -1,11 +1,7 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { restaurantsData, dropDownData, menuData, basketListData, searchValue,dropDownValue } from "./reducers";
-import thunk from "redux-thunk";
+import { createStore, combineReducers } from 'redux';
+import reducers from './reducers';
 
-const reducer = combineReducers({ restaurantsData, dropDownData, menuData, basketListData, searchValue, dropDownValue});
-//const enhancer = applyMiddleware(thunk);
-
-//const store = createStore(reducer, {}, enhancer);
+const reducer = combineReducers(reducers);
 const store = createStore(reducer);
 
 export default store;
