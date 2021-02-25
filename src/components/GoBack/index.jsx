@@ -1,6 +1,6 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const GoBack = () => {
     const history = useHistory();
@@ -8,7 +8,7 @@ const GoBack = () => {
         history.goBack();
     }
 
-    return(
+    return (
         <Button variant="contained" color="default" onClick={handleBtnClick}>GoBack</Button>
     )
 }
