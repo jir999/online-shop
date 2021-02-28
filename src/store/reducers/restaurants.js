@@ -1,15 +1,10 @@
-import { fetchRestaurantsData, restaurantsInputChange } from '../actions/restaurants';
+import { fetchRestaurantsData } from '../actions/restaurants';
 
 export const restaurantsData = (state = [], action) => {
-    const { type, fetchedData, inputValue } = action;
-    console.log("inputValue", inputValue)
+    const { type, fetchedData } = action;
     switch (type) {
         case fetchRestaurantsData:
             return fetchedData;
-        case restaurantsInputChange:
-            if (!inputValue) {
-                return state;
-            }
         default:
             return state;
     }
