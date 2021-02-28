@@ -5,10 +5,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import AddToCart from '../../../../components/AddToCart';
 import Button from '@material-ui/core/Button';
+import AddToCart from '../../../../components/AddToCart';
 
-const Menu = ({ id, name, photo, price }) => {
+const Menu = ({ id, name, photo, price, disabledValue }) => {
     const classes = useStyles();
 
     return (
@@ -36,7 +36,8 @@ const Menu = ({ id, name, photo, price }) => {
                     menuId={id}
                     menuName={name}
                     menuPhoto={photo}
-                    menuPrice={price} />
+                    menuPrice={price}
+                    disabledValue={disabledValue} />
             </CardActions>
         </Card>
     )

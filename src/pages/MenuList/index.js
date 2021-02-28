@@ -1,24 +1,21 @@
 import useStyles from './style';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import { fetchedMenuData } from '../../store/actions/menus';
-import { getMenuData, getSearchValue } from '../../store/selectors';
+import { getMenuData } from '../../store/selectors';
 import GoBack from '../../components/GoBack';
 import SearchBox from '../../components/SearchBox';
 import Menu from './components/Menu';
 import InputRange from '../../components/InputRange';
-
 import Grid from '@material-ui/core/Grid';
 
 const MenuList = () => {
     const classes = useStyles();
-    const [filteredList, setFilteredList] = useState([]);
-
-    const params = useParams();
-    console.log("PARAMS", params)
     const dispatch = useDispatch();
+    const params = useParams();
+    const [searchValue, setSearchValue] = useState('');
 
     const data = useFetch(`/menus/${params.id}.json`);
 
@@ -26,20 +23,20 @@ const MenuList = () => {
         dispatch(fetchedMenuData(data));
     }, [data])
 
-    const { menusList, searchValue } = useSelector((state) => ({
+    const { menusList } = useSelector((state) => ({
         menusList: getMenuData(state),
-        searchValue: getSearchValue(state),
-    }))
+    }));
 
-    let filtered;
-    if (searchValue) {
-        console.log("MENULIST searchValue", searchValue)
-        console.log("MENULIST FILTERED", filteredList);
-        filtered = menusList.filter((item) => item.name.toLowerCase().includes(searchValue));
-        // filtered = menusList.filter((item) => item.name.toLowerCase().includes(searchValue))
-        // setFilteredList(filtered);
+    const menus = useMemo(() => {
+        return menusList.filter((item) => {
+            const newItem = { ...item }
+            return newItem.name.toLowerCase().includes(searchValue);
+        });
+    }, [searchValue, menusList]);
+
+    const handleInputChange = (value) => {
+        setSearchValue(value);
     }
-    console.log("F", filteredList)
 
     return (
         <Grid container spacing={3} className={classes.root}>
@@ -47,32 +44,26 @@ const MenuList = () => {
                 <GoBack />
             </Grid>
             <Grid item xs={12}>
-                <SearchBox />
+                <SearchBox
+                    value={searchValue}
+                    onInputChange={handleInputChange}
+                />
             </Grid>
             <Grid item xs={12}>
                 <InputRange />
             </Grid>
             <Grid className={classes.menus} container spacing={3}>
-                {!filtered ? menusList.map((el) => (
+                {menus.length ? menus.map((el) => (
                     <Grid item xs={4}>
                         {<Menu className={classes.paper}
                             photo={el.photoUrl}
                             id={el.id}
                             name={el.name}
-                            price={el.price} />
+                            price={el.price}
+                            disabledValue={el.addToCartDisabled} />
                         }
                     </Grid>
-                ))
-                    : filtered.map((el) => (
-                        <Grid item xs={4}>
-                            {<Menu className={classes.paper}
-                                photo={el.photoUrl}
-                                id={el.id}
-                                name={el.name}
-                                price={el.price} />
-                            }
-                        </Grid>
-                    ))}
+                )) : <h1>Nothing Found</h1>}
             </Grid>
         </Grid>
     )
